@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
+//import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import readingTime from 'reading-time'
 
@@ -36,7 +36,7 @@ class BlogPostTemplate extends React.Component {
         <Hero
           image={post.heroImage?.gatsbyImageData}
           title={post.title}
-          content={post.description}
+          content={plainTextDescription}
         />
         <div className={styles.container}>
           <span className={styles.meta}>

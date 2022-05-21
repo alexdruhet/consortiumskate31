@@ -16,10 +16,14 @@ class BlogPostTemplate extends React.Component {
     const post = get(this.props, 'data.contentfulBlogPost')
     const previous = get(this.props, 'data.previous')
     const next = get(this.props, 'data.next')
+    //const plainTextDescription = documentToPlainTextString(
+    //  JSON.parse(post.description.description)
+    //)
     const plainTextDescription = documentToPlainTextString(
-      JSON.parse(post.description.description)
+      post.description.description
     )
-    const plainTextBody = documentToPlainTextString(JSON.parse(post.body.body))
+    //const plainTextBody = documentToPlainTextString(JSON.parse(post.body.body))
+    const plainTextBody = documentToPlainTextString(post.body.body)
     const { minutes: timeToRead } = readingTime(plainTextBody)
 
     return (
@@ -42,7 +46,7 @@ class BlogPostTemplate extends React.Component {
           </span>
           <div className={styles.article}>
             <div className={styles.body}>
-              {post.body?.body && renderRichText(post.body)}
+              {post.body?.body && renderRichText(post.body.body)}
             </div>
             <Tags tags={post.tags} />
             {(previous || next) && (

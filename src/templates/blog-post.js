@@ -46,7 +46,7 @@ class BlogPostTemplate extends React.Component {
           </span>
           <div className={styles.article}>
             <div className={styles.body}>
-              {post.body?.body && renderRichText(post.body.body)}
+              {plainTextBody}
             </div>
             <Tags tags={post.tags} />
             {(previous || next) && (

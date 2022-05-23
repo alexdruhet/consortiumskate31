@@ -36,8 +36,8 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful Starter",
-    description: "Official Contentful Gatsby Starter",
+    title: "Consortium Skate 31",
+    description: "Les assos de Skate de Toulouse Agglo réunies",
   },
   plugins: [
     "gatsby-transformer-sharp",

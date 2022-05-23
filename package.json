@@ -1,11 +1,11 @@
 {
-  "name": "contentful-starter-gatsby-blog",
-  "description": "Contentful Gatsby Starter Blog",
+  "name": "consortiumskate31-blog",
+  "description": "Consortium Skate 31 Blog",
   "private": true,
   "version": "0.0.1",
-  "author": "Contentful <opensource@contentful.com>",
+  "author": "Alex Druhet<alex@pixadelic.fr>",
   "bugs": {
-    "url": "https://github.com/contentful/starter-gatsby-blog/issues"
+    "url": "https://github.com/alexdruhet/consortiumskate31/issues"
   },
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "^15.12.1",
@@ -29,7 +29,7 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "homepage": "https://github.com/contentful/starter-gatsby-blog#readme",
+  "homepage": "https://github.com/alexdruhet/consortiumskate31#readme",
   "keywords": [
     "gatsby",
     "contentful",
@@ -39,7 +39,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/contentful/starter-gatsby-blog.git"
+    "url": "git+https://github.com/alexdruhet/consortiumskate31.git"
   },
   "scripts": {
     "dev": "gatsby develop",

@@ -58,5 +58,5 @@
   height: var(--size-logo);
   width: var(--size-logo);
   display: block;
-  background-image: url("/static/logo-consortiumskate31-min.svg");
+  background-image: url("/images/logo-consortiumskate31-min.svg");
 }

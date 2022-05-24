@@ -9,11 +9,11 @@ import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import Tags from '../components/tags'
-import * as styles from './blog-post.module.css'
+import * as styles from './post.module.css'
 
-class BlogPostTemplate extends React.Component {
+class PostTemplate extends React.Component {
   render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
+    const post = get(this.props, 'data.contentfulPost')
     const previous = get(this.props, 'data.previous')
     const next = get(this.props, 'data.next')
     //const plainTextDescription = documentToPlainTextString(
@@ -76,15 +76,15 @@ class BlogPostTemplate extends React.Component {
   }
 }
 
-export default BlogPostTemplate
+export default PostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug(
+  query PostBySlug(
     $slug: String!
     $previousPostSlug: String
     $nextPostSlug: String
   ) {
-    contentfulBlogPost(slug: { eq: $slug }) {
+    contentfulPost(slug: { eq: $slug }) {
       slug
       title
       author {
@@ -106,11 +106,11 @@ export const pageQuery = graphql`
         description
       }
     }
-    previous: contentfulBlogPost(slug: { eq: $previousPostSlug }) {
+    previous: contentfulPost(slug: { eq: $previousPostSlug }) {
       slug
       title
     }
-    next: contentfulBlogPost(slug: { eq: $nextPostSlug }) {
+    next: contentfulPost(slug: { eq: $nextPostSlug }) {
       slug
       title
     }

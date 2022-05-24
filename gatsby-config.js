@@ -37,7 +37,7 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: "Consortium Skate 31",
-    description: "Les assos de Skate de Toulouse Agglo réunies",
+    description: "Groupement des associations skateboard de Toulouse Métropole",
   },
   plugins: [
     "gatsby-transformer-sharp",

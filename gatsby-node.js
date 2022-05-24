@@ -5,7 +5,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       fallback: {
         fs: false,
-        path: false
+        path: false,
+        process: false
       }
     }
   })
@@ -15,12 +16,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   // Define a template for blog post
-  const blogPost = path.resolve('./src/templates/blog-post.js')
+  const Post = path.resolve('./src/templates/post.js')
 
   const result = await graphql(
     `
       {
-        allContentfulBlogPost {
+        allContentfulPost {
           nodes {
             title
             slug
@@ -38,7 +39,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  const posts = result.data.allContentfulBlogPost.nodes
+  const posts = result.data.allContentfulPost.nodes
 
   // Create blog posts pages
   // But only if there's at least one blog post found in Contentful
@@ -52,7 +53,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
       createPage({
         path: `/blog/${post.slug}/`,
-        component: blogPost,
+        component: Post,
         context: {
           slug: post.slug,
           previousPostSlug,

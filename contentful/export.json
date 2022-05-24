@@ -156,7 +156,7 @@
             "id": "28p9vvm1oxuw"
           }
         },
-        "id": "blogPost",
+        "id": "Post",
         "type": "ContentType",
         "createdAt": "2017-05-11T12:17:42.862Z",
         "updatedAt": "2017-05-17T10:55:24.031Z",
@@ -430,7 +430,7 @@
           "sys": {
             "type": "Link",
             "linkType": "ContentType",
-            "id": "blogPost"
+            "id": "Post"
           }
         },
         "updatedAt": "2017-05-17T10:55:25.370Z",
@@ -595,7 +595,7 @@
           "sys": {
             "type": "Link",
             "linkType": "ContentType",
-            "id": "blogPost"
+            "id": "Post"
           }
         }
       },
@@ -837,7 +837,7 @@
           "sys": {
             "type": "Link",
             "linkType": "ContentType",
-            "id": "blogPost"
+            "id": "Post"
           }
         }
       },
@@ -1519,7 +1519,7 @@
           "sys": {
             "type": "Link",
             "linkType": "ContentType",
-            "id": "blogPost"
+            "id": "Post"
           }
         }
       },

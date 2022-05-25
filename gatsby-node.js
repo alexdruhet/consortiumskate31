@@ -6,7 +6,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       fallback: {
         fs: false,
         path: false,
-        process: false
+        //process: false
       }
     }
   })

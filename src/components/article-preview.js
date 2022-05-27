@@ -7,9 +7,13 @@ import Container from './container'
 import Tags from './tags'
 import * as styles from './article-preview.module.css'
 
+import moment from 'moment'
+import 'moment/locale/fr'
+
 const ArticlePreview = ({ posts }) => {
   if (!posts) return null
   if (!Array.isArray(posts)) return null
+  moment.locale('fr')
 
   return (
     <Container>
@@ -25,7 +29,9 @@ const ArticlePreview = ({ posts }) => {
                 {post.description?.raw && renderRichText(post.description)}
               </div>
               <div className={styles.meta}>
-                <small className="meta">{post.publishDate}</small>
+                <time className="meta date" datetime={post.publishDate}>
+                  {moment(post.publishDate).format('LL')}
+                </time>
                 <Tags tags={post.tags} />
               </div>
             </li>

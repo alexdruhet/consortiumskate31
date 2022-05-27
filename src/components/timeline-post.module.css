@@ -1,0 +1,24 @@
+.timeline-post-list {
+  margin: 0;
+  padding: 0;
+  list-style: square;
+  padding-left: 2rem;
+  padding-bottom: 1.5rem;
+  border-left: 1px solid #ccc;
+  flex: 0 1 15rem;
+  align-self: auto;
+}
+
+.title {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:hover .title {
+  border-bottom-color: var(--primary);
+}

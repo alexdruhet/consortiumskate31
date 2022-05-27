@@ -28,10 +28,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(
     `
       {
-        allContentfulPost {
+        allContentfulPost(filter: { node_locale: { eq: "fr" } }) {
           nodes {
             title
             slug
+            node_locale
           }
         }
       }

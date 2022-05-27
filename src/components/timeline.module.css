@@ -1,21 +1,41 @@
+.title {
+  font-size: var(--text-title);
+  text-align: center;
+}
+
 .milestone-list {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  grid-gap: var(--space-3xl);
+  display: block;
+  max-width: 640px;
 }
 
-.title {
-  display: inline-block;
-  font-size: var(--text-lg);
-  margin-bottom: var(--space-xs);
-  margin-top: var(--space-lg);
-  border-bottom: 1.5px solid transparent;
-}
-
-.meta {
+.milestone-item {
+  margin: 0 auto;
+  padding: 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.milestone-date {
+  flex: 0 1 25%;
+  align-self: auto;
+  text-align: right;
+  margin-top: .1rem;
+  margin-right: 1rem;
+}
+
+.milestone-title {
+  flex: 0 1 26rem;
+  align-self: auto;
+  margin: 0;
+  padding-left: 1rem;
+  padding-bottom: .5rem;
+  border-left: 1px solid #ccc;
+  font-size: 1.25rem;
 }

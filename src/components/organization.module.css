@@ -1,0 +1,35 @@
+.organization {
+  max-width: 640px;
+  margin: 4rem auto 3rem;
+}
+
+.image {
+  max-width: 640px;
+}
+
+.details {
+  max-width: 40rem;
+  width: 85%;
+  margin: 2rem auto 0;
+}
+
+.title {
+  visibility: hidden;
+  position: absolute;
+}
+
+.content {
+  font-size: var(--text-lead);
+  font-weight: var(--semibold);
+  margin: 0;
+}
+
+@media (min-width: 1000px) {
+  .organization {
+    max-width: 1000px;
+  }
+
+  .details {
+    padding-left: 30px;
+  }
+}

@@ -1,10 +1,10 @@
 import React from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import * as styles from './hero.module.css'
+import * as styles from './organization.module.css'
 
-const Hero = ({ image, title, content }) => (
-  <div className={styles.hero}>
+const Organization = ({ image, title, content }) => (
+  <div className={styles.organization}>
     {image && (
       <GatsbyImage className={styles.image} alt={title} image={image} />
     )}
@@ -17,4 +17,4 @@ const Hero = ({ image, title, content }) => (
   </div>
 )
 
-export default Hero
+export default Organization

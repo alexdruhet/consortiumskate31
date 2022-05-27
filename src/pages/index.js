@@ -1,30 +1,22 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-
 import Layout from '../components/layout'
 import Timeline from '../components/timeline'
-//import Hero from '../components/hero'
-//import ArticlePreview from '../components/article-preview'
+import Organization from '../components/organization'
 
 class RootIndex extends React.Component {
   render() {
-    const milestones = get(this, 'props.data.allContentfulMilestone.nodes')
-    const [consortium] = get(this, 'props.data.allContentfulOrganization.nodes')
-    const content = consortium.name
-    //return (
-    //  <Layout location={this.props.location}>
-    //    <Hero
-    //      image={author.heroImage.gatsbyImageData}
-    //      title={author.name}
-    //      content={content}
-    //    />
-    //    <ArticlePreview posts={posts} />
-    //  </Layout>
-    //)
+    const milestones = get(this, 'props.data.allContentfulJalon.nodes')
+    const consortium = get(this, 'props.data.contentfulOrganization')
 
     return (
       <Layout location={this.props.location}>
+        <Organization
+          image={consortium.logo.gatsbyImageData}
+          title={consortium.name}
+          content={consortium.extract}
+        />
         <Timeline milestones={milestones} />
       </Layout>
     )
@@ -35,21 +27,32 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulJalon(sort: { fields: [date], order: DESC }) {
+    allContentfulJalon(
+      filter: { node_locale: { eq: "fr" } }
+      sort: { fields: [date], order: ASC }
+    ) {
       nodes {
         id
         title
-        date(formatString: "Do MMMM YYYY")
+        date
+        post {
+          title
+          slug
+          publishDate
+          tags
+          extract {
+            raw
+          }
+        }
       }
     }
-    allContentfulOrganization(
-      filter: { contentful_id: { eq: "40ZYzuaiU4F6K4EXie7NY1" } }
-    ) {
-      nodes {
-        name
-        description {
-          raw
-        }
+    contentfulOrganization(id: { eq: "ed0f19fa-9d60-5a61-8f1f-4c3ba365c018" }) {
+      name
+      description {
+        raw
+      }
+      logo {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: NONE, width: 640)
       }
     }
   }

@@ -59,4 +59,5 @@
   width: calc(var(--size-logo)/1.6);
   display: block;
   background-image: url("/images/logo-consortiumskate31-min.svg");
+  background-repeat: no-repeat;
 }

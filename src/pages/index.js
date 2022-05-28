@@ -15,7 +15,7 @@ class RootIndex extends React.Component {
         <Organization
           image={consortium.logo.gatsbyImageData}
           title={consortium.name}
-          content={consortium.extract}
+          content={consortium.description}
         />
         <Timeline milestones={milestones} />
       </Layout>

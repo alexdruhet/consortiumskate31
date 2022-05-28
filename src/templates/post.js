@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import { INLINES, BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import readingTime from 'reading-time'
 
@@ -12,6 +13,28 @@ import Tags from '../components/tags'
 import * as styles from './post.module.css'
 import moment from 'moment'
 import 'moment/locale/fr'
+
+const options = {
+  renderMark: {
+    [MARKS.BOLD]: (text) => <b className="font-bold">{text}</b>,
+  },
+  renderNode: {
+    [INLINES.HYPERLINK]: (node, children) => {
+      const { uri } = node.data
+      return (
+        <a href={uri} className="underline">
+          {children}
+        </a>
+      )
+    },
+    [BLOCKS.HEADING_2]: (node, children) => {
+      return <h2>{children}</h2>
+    },
+    [BLOCKS.UL_LIST]: (node, children) => {
+      return <li>{children}</li>
+    },
+  },
+}
 
 class PostTemplate extends React.Component {
   render() {
@@ -44,7 +67,7 @@ class PostTemplate extends React.Component {
             {timeToRead} minute de lecture
           </span>
           <div className={styles.article}>
-            <div className={styles.body}>{renderRichText(post.body)}</div>
+            <div className={styles.body}>{renderRichText(post.body, options)}</div>
             <Tags tags={post.tags} />
             {(previous || next) && (
               <nav>

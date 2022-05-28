@@ -13,10 +13,8 @@ const TimelinePost = ({ posts }) => {
         return (
           <li key={post.slug}>
             <Link to={`/blog/${post.slug}`} className={styles.link}>
-              <strong className={styles.title}>{post.title}</strong>
-              <div>
-                {post.description?.raw && renderRichText(post.description)}
-              </div>
+              <strong className={styles.title}>{post.title}</strong><br/>
+              {post.extract.raw && renderRichText(post.extract)}
             </Link>
           </li>
         )

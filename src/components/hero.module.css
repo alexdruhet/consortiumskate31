@@ -4,8 +4,11 @@
   margin: 0 auto;
   max-width: var(--size-max-width);
   min-height: 200px;
-  padding: 0 0 var(--size-gutter);
   position: relative;
+  padding: 2rem;
+  margin: 0 auto;
+  background-color: var(--primary-light);
+  background: linear-gradient(to bottom, var(--primary-light) 0%, #fff 60%);
 }
 
 .image {

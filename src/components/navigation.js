@@ -18,11 +18,6 @@ const Navigation = ({ lang = 'en' }) => (
         </Link>
       </li>
       <li className={styles.navigationItem}>
-        <Link to="/etude-du-skateboard-a-toulouse" activeClassName="active">
-          Étude du skateboard à Toulouse
-        </Link>
-      </li>
-      <li className={styles.navigationItem}>
         <Link to="/les-membres" activeClassName="active">
           Les membres
         </Link>
@@ -30,5 +25,11 @@ const Navigation = ({ lang = 'en' }) => (
     </ul>
   </nav>
 )
+
+//li className={styles.navigationItem}>
+//Link to="/etude-du-skateboard-a-toulouse" activeClassName="active">
+// Étude du skateboard à Toulouse
+///Link>
+///li>
 
 export default Navigation

@@ -1,6 +1,8 @@
 .organization {
-  max-width: 640px;
-  margin: 4rem auto 3rem;
+  padding: 2rem;
+  margin: 0 auto;
+  background-color: var(--primary-light);
+  background: linear-gradient(to bottom, var(--primary-light) 0%, #fff 60%);
 }
 
 .image {
@@ -8,9 +10,11 @@
 }
 
 .details {
-  max-width: 40rem;
-  width: 85%;
-  margin: 2rem auto 0;
+  margin: 1.25rem auto 0;
+}
+
+.details p {
+  margin: 0;
 }
 
 .title {
@@ -24,12 +28,15 @@
   margin: 0;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 44rem) {
   .organization {
-    max-width: 1000px;
+    padding: 4rem 0 3rem;
   }
 
+  .image,
   .details {
-    padding-left: 30px;
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

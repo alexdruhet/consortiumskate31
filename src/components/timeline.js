@@ -10,6 +10,8 @@ const Timeline = ({ milestones }) => {
   moment.locale('fr')
 
   return (
+    <div className={styles.timeline}>
+      <h2 className={styles.title}>Chronologie</h2>
       <ul className={styles.milestoneList}>
         {milestones.map((milestone) => {
           return (
@@ -17,12 +19,15 @@ const Timeline = ({ milestones }) => {
               <time className={styles.milestoneDate} datetime={milestone.date}>
                 {moment(milestone.date).format('LL')}
               </time>
-              <h2 className={styles.milestoneTitle}>{milestone.title}</h2>
-              {milestone.post && <TimelinePost posts={milestone.post} />}
+              <div className={styles.milestoneContent}>
+                <h3 className={styles.milestoneTitle}>{milestone.title}</h3>
+                {milestone.post && <TimelinePost posts={milestone.post} />}
+              </div>
             </li>
           )
         })}
       </ul>
+    </div>
   )
 }
 

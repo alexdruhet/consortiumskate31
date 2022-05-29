@@ -7,8 +7,11 @@ const Navigation = ({ lang = 'en' }) => (
   <nav role="navigation" className={styles.container} aria-label="Main">
     <Link to="/" className={styles.logoLink}>
       <span className={styles.logo} />
-      <span className={styles.navigationItem}>
-        {siteMetadata.title} - {siteMetadata.description}
+      <span className={styles.title}>
+        {siteMetadata.title}
+      </span>
+      <span className={styles.description}>
+        {siteMetadata.description}
       </span>
     </Link>
     <ul className={styles.navigation}>
@@ -25,11 +28,5 @@ const Navigation = ({ lang = 'en' }) => (
     </ul>
   </nav>
 )
-
-//li className={styles.navigationItem}>
-//Link to="/etude-du-skateboard-a-toulouse" activeClassName="active">
-// Étude du skateboard à Toulouse
-///Link>
-///li>
 
 export default Navigation

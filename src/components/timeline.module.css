@@ -35,6 +35,24 @@
   font-size: 1.25rem;
 }
 
+.milestone-date {
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--secondary);
+}
+
+.milestone-date::after {
+  content: '';
+  position: absolute;
+  top: .65rem;
+  left: -.1rem;
+  background-color: var(--white);
+  border: 3px solid var(--secondary);
+  width: .5rem;
+  height: .5rem;
+  border-radius: 50%;
+}
+
 @media (min-width: 44rem) {
   .timeline {
     max-width: 40rem;
@@ -54,11 +72,18 @@
   }
 
   .milestone-date {
-    flex: 0 1 8.5rem;
+    flex: 0 1 8rem;
     align-self: auto;
     text-align: right;
-    margin-top: .5rem;
+    margin-top: .6rem;
     margin-right: 1rem;
+    padding-left: 0;
+  }
+
+  .milestone-date::after {
+    top: 0.3rem;
+    left: auto;
+    right: -1.77rem;
   }
 
   .milestone-content {
@@ -67,7 +92,7 @@
   }
 
   .title {
-    margin-left: 13.5rem;
+    margin-left: 13.2rem;
   }
 
 }

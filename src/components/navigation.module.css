@@ -1,11 +1,53 @@
 .container {
-  display: flex;
-  justify-content: space-between;
-  max-width: var(--size-max-width);
-  align-items: center;
-  margin: 0 auto;
-  padding: var(--space-2xl) var(--size-gutter);
+  padding: 1.5rem 2rem;
+  text-align: center;
 }
+
+.logo-link {
+  font-weight: var(--medium);
+}
+
+.logo-link span {
+  vertical-align: middle;
+  margin-right: .65rem;
+  display: inline-block;
+}
+
+.logo {
+  height: var(--size-logo);
+  width: calc(var(--size-logo)/1.6);
+  display: inline-block;
+  background-image: url("/images/logo-consortiumskate31-min.svg");
+  background-repeat: no-repeat;
+}
+
+.logo-link .description {
+  display: none;
+}
+
+.navigation {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  position: sticky;
+}
+
+.navigation-item {
+  display: inline-block;
+  margin-inline: .325rem;
+  vertical-align: middle;
+}
+
+.navigation-item::after {
+  content: '-';
+  padding-left: .65rem;
+}
+
+.navigation-item:last-child::after {
+  display: none;
+}
+
+/*
 
 .navigation {
   display: flex;
@@ -53,11 +95,32 @@
     width: 1px;
   }
 }
+*/
 
-.logo {
-  height: var(--size-logo);
-  width: calc(var(--size-logo)/1.6);
-  display: block;
-  background-image: url("/images/logo-consortiumskate31-min.svg");
-  background-repeat: no-repeat;
+@media (min-width: 42rem) {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    max-width: var(--size-max-width);
+    margin: 0 auto;
+  }
+
+  .navigation {
+    margin-top: 0;
+  }
+
+  .navigation-item::after {
+    padding-left: .65rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .logo-link .description {
+    display: inline-block;
+  }
+
+  .logo-link .description::before {
+    content: '-';
+    padding-right: .65rem;
+  }
 }

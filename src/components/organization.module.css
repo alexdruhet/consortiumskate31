@@ -1,8 +1,6 @@
 .organization {
   padding: 2rem;
   margin: 0 auto;
-  background-color: var(--primary-light);
-  background: linear-gradient(to bottom, var(--primary-light) 0%, #fff 60%);
 }
 
 .image {

@@ -8,6 +8,7 @@
   padding-left: var(--size-gutter);
   position: relative;
   top: -1em;
+  display: block;
 }
 
 .article {

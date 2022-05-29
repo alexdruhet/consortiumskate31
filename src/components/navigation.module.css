@@ -4,7 +4,7 @@
 }
 
 .logo-link {
-  font-weight: var(--medium);
+  font-weight: var(--body);
 }
 
 .logo-link span {
@@ -19,6 +19,10 @@
   display: inline-block;
   background-image: url("/images/logo-consortiumskate31-min.svg");
   background-repeat: no-repeat;
+}
+
+.title {
+  font-weight: var(--medium);
 }
 
 .logo-link .description {

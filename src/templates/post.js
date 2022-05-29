@@ -47,27 +47,33 @@ class PostTemplate extends React.Component {
     )
     const plainTextBody = documentToPlainTextString(JSON.parse(post.body.raw))
     const { minutes: timeToRead } = readingTime(plainTextBody)
+    let heroImage = post.heroImage;
+    if (heroImage.filename === 'white.png') heroImage = null
 
     return (
       <Layout location={this.props.location}>
         <Seo
           title={post.title}
           description={plainTextExtract}
-          image={`http:${post.heroImage?.resize.src}`}
+          image={`http:${post.heroImage.resize.src}`}
         />
         <Hero
-          image={post.heroImage?.gatsbyImageData}
+          image={heroImage?.gatsbyImageData}
           title={post.title}
           content={post.extract}
         />
         <div className={styles.container}>
           <span className={styles.meta}>
             {post.author?.name} &middot;{' '}
-            <time dateTime={post.rawDate}>{moment(post.publishDate).format('LL')}</time> –{' '}
-            {timeToRead} minute de lecture
+            <time dateTime={post.rawDate}>
+              {moment(post.publishDate).format('LL')}
+            </time>{' '}
+            – {timeToRead} minute de lecture
           </span>
           <div className={styles.article}>
-            <div className={styles.body}>{renderRichText(post.body, options)}</div>
+            <div className={styles.body}>
+              {renderRichText(post.body, options)}
+            </div>
             <Tags tags={post.tags} />
             {(previous || next) && (
               <nav>
@@ -117,6 +123,7 @@ export const pageQuery = graphql`
         resize(height: 630, width: 1200) {
           src
         }
+        filename
       }
       body {
         raw

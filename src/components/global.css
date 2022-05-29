@@ -99,3 +99,8 @@ pre,
 code {
   font-family: var(--font-monospace);
 }
+
+main {
+  background-color: var(--primary-light);
+  background: linear-gradient(to bottom, var(--primary-light) 0%, #fff 60%);
+}

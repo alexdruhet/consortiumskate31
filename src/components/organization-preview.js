@@ -16,7 +16,7 @@ const OrganizationPreview = ({ organizations }) => {
           return (
             <li key={organization.id}>
             <Link to={organization.link} className={styles.link}>
-            {organization.logo && (<GatsbyImage alt="" image={organization.logo} />)}
+            {organization.logo==2 && (<GatsbyImage alt="" image={organization.logo} />)}
                 <h2 className={styles.name}>{organization.name}</h2>
               <div>
                 {organization.description?.raw && renderRichText(organization.description)}

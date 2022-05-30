@@ -3,7 +3,7 @@
   align-items: flex-end;
   display: flex;
   margin: 0 auto;
-  padding: var(--size-gutter);
+  padding: 2rem;
   max-width: var(--size-max-width);
   min-height: 200px;
 }
@@ -12,7 +12,7 @@
   position: relative;
   display: block;
   margin: 0 auto;
-  padding: var(--size-gutter);
+  padding: 2rem;
   max-width: var(--size-max-width);
 }
 
@@ -51,6 +51,10 @@
 .content {
   font-size: var(--text-lead);
   font-weight: var(--semibold);
+  margin: 0;
+}
+
+.content p {
   margin: 0;
 }
 

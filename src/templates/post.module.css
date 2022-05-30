@@ -1,97 +1,55 @@
+.container {
+  margin-bottom: 2rem;
+}
+
 .meta {
-  font-family: var(--font-serif);
-  font-size: var(--text-lg);
-  font-style: italic;
-  margin: 0 auto 1em;
-  max-width: var(--size-max-width);
-  padding-bottom: var(--size-gutter);
-  padding-left: var(--size-gutter);
-  position: relative;
-  top: -1em;
+  font-size: .875rem;
+  color: var(--text-color-light);
+  filter: grayscale(100%);
+  padding: 0 2rem;
+}
+
+.meta>* {
   display: block;
+  margin-bottom: .25rem;
 }
 
-.article {
-  display: grid;
-  font-size: var(--text-prose);
-  gap: var(--space-xl);
-  letter-spacing: var(--text-prose-tracking);
-  line-height: var(--loose);
-  padding: var(--size-gutter) var(--size-gutter) calc(var(--size-gutter) * 2);
+.author {}
+
+.time-to-read {}
+
+.article {}
+
+.body {}
+
+.body ul,
+.body ol {
+  margin-left: 0;
 }
 
-.body {
-  max-width: 48rem;
+.body ul {
+  list-style: circle;
 }
 
-.article h2:first-of-type {
-  margin-top: 0;
-}
+.article-navigation {}
 
-.article a {
-  border-bottom: 1.5px solid currentColor;
-  font-weight: var(--medium);
-}
-
-.article a:hover {
-  border-bottom-color: transparent;
-  color: var(--primary);
-}
-
-.article p {
-  margin-bottom: 1.5em;
-  margin-top: 0;
-}
-
-.article h1,
-.article h2 {
-  font-size: var(--text-2xl);
-  margin-top: var(--space-3xl);
-}
-
-.article h3,
-.article h4,
-.article h5,
-.article h6 {
-  font-size: var(--text-prose);
-  font-weight: var(--semibold);
-  margin-bottom: 0.5em;
-  margin-top: 3em;
-}
-
-.article li {
-  margin-bottom: 0.5em;
-}
-
-.articleNavigation {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  list-style: none;
-  padding: 0;
-}
-
-@media (min-width: 768px) {
+@media (min-width: 42rem) {
   .container {
     max-width: var(--size-max-width);
-    margin: 0 auto;
+    margin: 0 auto 2rem;
+    display: flex;
   }
 
-  .article {
-    gap: var(--space-xl);
-  }
-}
-
-@media (min-width: 1024px) {
-  .article {
-    gap: var(--space-3xl);
-    margin: 0 var(--size-gutter) 0 auto;
-    padding-left: 0;
-    padding-right: 0;
-    width: calc(85% - var(--size-gutter));
+  .meta {
+    width: 16rem;
   }
 
-  .article ul {
-    padding-left: 0;
+  .body {
+    max-width: 48rem;
+  }
+
+  .body *:first-child {
+    margin-top: 0;
+    padding-top: 0;
   }
 }

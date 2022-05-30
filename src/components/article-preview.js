@@ -21,12 +21,12 @@ const ArticlePreview = ({ posts }) => {
         {posts.map((post) => {
           return (
             <li key={post.slug}>
-              <Link to={`/blog/${post.slug}`} className={styles.link}>
-                <GatsbyImage alt="" image={post.heroImage?.gatsbyImageData} />
+              <Link to={`/articles/${post.slug}`} className={styles.link}>
+              {post.heroImage && (<GatsbyImage alt="" image={post.heroImage} />)}
                 <h2 className={styles.title}>{post.title}</h2>
               </Link>
               <div>
-                {post.description?.raw && renderRichText(post.description)}
+                {post.extract.raw && renderRichText(post.extract)}
               </div>
               <div className={styles.meta}>
                 <time className="meta date" datetime={post.publishDate}>

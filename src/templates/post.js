@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { INLINES, BLOCKS, MARKS } from '@contentful/rich-text-types'
+//import { INLINES, BLOCKS, MARKS } from '@contentful/rich-text-types'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import readingTime from 'reading-time'
 
@@ -15,25 +15,25 @@ import moment from 'moment'
 import 'moment/locale/fr'
 
 const options = {
-  renderMark: {
-    [MARKS.BOLD]: (text) => <b className="font-bold">{text}</b>,
-  },
-  renderNode: {
-    [INLINES.HYPERLINK]: (node, children) => {
-      const { uri } = node.data
-      return (
-        <a href={uri} className="underline">
-          {children}
-        </a>
-      )
-    },
-    [BLOCKS.HEADING_2]: (node, children) => {
-      return <h2>{children}</h2>
-    },
-    [BLOCKS.UL_LIST]: (node, children) => {
-      return <li>{children}</li>
-    },
-  },
+  //renderMark: {
+  //  [MARKS.BOLD]: (text) => <b className="font-bold">{text}</b>,
+  //},
+  //renderNode: {
+  //  [INLINES.HYPERLINK]: (node, children) => {
+  //    const { uri } = node.data
+  //    return (
+  //      <a href={uri} className="underline">
+  //        {children}
+  //      </a>
+  //    )
+  //  },
+  //  [BLOCKS.HEADING_2]: (node, children) => {
+  //    return <h2>{children}</h2>
+  //  },
+  //  [BLOCKS.UL_LIST]: (node, children) => {
+  //    return <li>{children}</li>
+  //  },
+  //},
 }
 
 class PostTemplate extends React.Component {
@@ -47,7 +47,7 @@ class PostTemplate extends React.Component {
     )
     const plainTextBody = documentToPlainTextString(JSON.parse(post.body.raw))
     const { minutes: timeToRead } = readingTime(plainTextBody)
-    let heroImage = post.heroImage;
+    let heroImage = post.heroImage
     if (heroImage.filename === 'white.png') heroImage = null
 
     return (
@@ -63,31 +63,33 @@ class PostTemplate extends React.Component {
           content={post.extract}
         />
         <div className={styles.container}>
-          <span className={styles.meta}>
-            {post.author?.name} &middot;{' '}
+          <div className={styles.meta}>
+            <div className={styles.author}>✍️ {post.author?.name}</div>{' '}
             <time dateTime={post.rawDate}>
-              {moment(post.publishDate).format('LL')}
+              📆 {moment(post.publishDate).format('LL')}
             </time>{' '}
-            – {timeToRead} minute de lecture
-          </span>
+            <div className={styles.timeToRead}>
+              ⏱️ {timeToRead} minute{timeToRead > 1 ? 's' : ''} de lecture
+            </div>
+            <Tags tags={post.tags} />
+          </div>
           <div className={styles.article}>
             <div className={styles.body}>
               {renderRichText(post.body, options)}
             </div>
-            <Tags tags={post.tags} />
             {(previous || next) && (
               <nav>
                 <ul className={styles.articleNavigation}>
                   {previous && (
                     <li>
-                      <Link to={`/blog/${previous.slug}`} rel="prev">
+                      <Link to={`/articles/${previous.slug}`} rel="prev">
                         ← {previous.title}
                       </Link>
                     </li>
                   )}
                   {next && (
                     <li>
-                      <Link to={`/blog/${next.slug}`} rel="next">
+                      <Link to={`/articles/${next.slug}`} rel="next">
                         {next.title} →
                       </Link>
                     </li>

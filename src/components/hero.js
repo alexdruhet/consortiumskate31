@@ -5,7 +5,7 @@ import * as styles from './hero.module.css'
 
 const Hero = ({ image, title, content }) => (
   <div className={!image ? styles.heroNoImg : styles.hero}>
-    {image==2 && (
+    {image && (
       <GatsbyImage className={styles.image} alt={title} image={image} />
     )}
     <div className={styles.details}>

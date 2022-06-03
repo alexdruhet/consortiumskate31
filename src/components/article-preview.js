@@ -22,7 +22,7 @@ const ArticlePreview = ({ posts }) => {
           return (
             <li key={post.slug}>
               <Link to={`/articles/${post.slug}`} className={styles.link}>
-              {post.heroImage==2 && (<GatsbyImage alt="" image={post.heroImage} />)}
+              {post.heroImage && (<GatsbyImage alt="" image={post.heroImage} />)}
                 <h2 className={styles.title}>{post.title}</h2>
               </Link>
               <div>

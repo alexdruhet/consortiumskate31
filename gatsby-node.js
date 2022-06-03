@@ -1,13 +1,14 @@
 const path = require('path')
 const webpack = require('webpack')
+const { extractTagsFromPosts } = require('./src/components/helpers')
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       fallback: {
         fs: false,
-        path: require.resolve("path-browserify")
-      }
+        path: require.resolve('path-browserify'),
+      },
     },
     plugins: [
       // fix "process is not defined" error:
@@ -15,7 +16,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       new webpack.ProvidePlugin({
         process: 'process/browser',
       }),
-    ]
+    ],
   })
 }
 
@@ -24,6 +25,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Define a template for blog post
   const Post = path.resolve('./src/templates/post.js')
+  const Tag = path.resolve('./src/templates/tag.js')
 
   const result = await graphql(
     `
@@ -32,7 +34,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           nodes {
             title
             slug
-            node_locale
+            tags
           }
         }
       }
@@ -55,9 +57,20 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   if (posts.length > 0) {
     posts.forEach((post, index) => {
-      const previousPostSlug = index === 0 ? null : posts[index - 1].slug
+      const previousPostSlug =
+        index === 0
+          ? null
+          : posts[index - 1].tags.includes('demo') &&
+            !post.tags.includes('demo')
+          ? null
+          : posts[index - 1].slug
       const nextPostSlug =
-        index === posts.length - 1 ? null : posts[index + 1].slug
+        index === posts.length - 1
+          ? null
+          : posts[index + 1].tags.includes('demo') &&
+            !post.tags.includes('demo')
+          ? null
+          : posts[index + 1].slug
 
       createPage({
         path: `/articles/${post.slug}/`,
@@ -69,5 +82,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         },
       })
     })
+
+    const tags = extractTagsFromPosts(posts)
+    if (tags.length > 0) {
+      tags.forEach((tag, index) => {
+        createPage({
+          path: `/tags/${tag}/`,
+          component: Tag,
+          context: {
+            tag: tag,
+          },
+        })
+      })
+    }
   }
 }

@@ -8,8 +8,15 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       fallback: {
         fs: false,
         path: require.resolve('path-browserify'),
+        stream: require.resolve("stream-browserify"),
+        http: require.resolve("stream-http"),
+        https: require.resolve("https-browserify"),
+        util: require.resolve("util/"),
+        zlib: require.resolve("browserify-zlib"),
+        assert: require.resolve("assert/"),
       },
     },
+    externals : { canvas: {} },
     plugins: [
       // fix "process is not defined" error:
       // (do "npm install process" before running the build)

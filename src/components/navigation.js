@@ -25,6 +25,11 @@ const Navigation = ({ lang = 'en' }) => (
           Les membres
         </Link>
       </li>
+      <li className={styles.navigationItem}>
+        <Link to="/dossiers" activeClassName="active">
+          Dossiers
+        </Link>
+      </li>
     </ul>
   </nav>
 )

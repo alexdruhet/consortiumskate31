@@ -31,7 +31,12 @@
   list-style: circle;
 }
 
-.tag-navigation {}
+.tag-navigation {
+  text-align: center;
+  padding: 1rem 2rem;
+  max-width: var(--size-max-width);
+  margin: 0 auto 2rem;
+}
 
 @media (min-width: 42rem) {
   .container {

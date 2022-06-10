@@ -15,12 +15,18 @@ const OrganizationPreview = ({ organizations }) => {
         {organizations.map((organization) => {
           return (
             <li key={organization.id}>
-            <Link to={organization.link} className={styles.link}>
-            {organization.logo && (<GatsbyImage alt="" image={organization.logo} />)}
+              <Link to={organization.link} className={styles.link}>
+                {organization.logo && (
+                  <GatsbyImage
+                    alt=""
+                    image={organization.logo.gatsbyImageData}
+                  />
+                )}
                 <h2 className={styles.name}>{organization.name}</h2>
-              <div>
-                {organization.description?.raw && renderRichText(organization.description)}
-              </div>
+                <div>
+                  {organization.description?.raw &&
+                    renderRichText(organization.description)}
+                </div>
               </Link>
             </li>
           )

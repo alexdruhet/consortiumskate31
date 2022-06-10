@@ -118,7 +118,7 @@
   }
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 65rem) {
   .logo-link .description {
     display: inline-block;
   }

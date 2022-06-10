@@ -1,13 +1,21 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+//import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
-import * as styles from './tag.module.css'
+//import * as styles from './tag.module.css'
 
+/**
+         <div styles={styles.tagNavigation}>
+          <Link to={`/tags`}>
+            Tous les tags
+          </Link>
+        </div>
+ */
 class TagTemplate extends React.Component {
   render() {
     const posts = get(this, 'props.data.allContentfulPost.nodes')
@@ -18,11 +26,6 @@ class TagTemplate extends React.Component {
         <Seo title={`Tous les articles taggués ${tag}`} />
         <Hero title={`Tous les articles taggués ${tag}`} />
         <ArticlePreview posts={posts} />
-        <div styles={styles.tagNavigation}>
-          <Link to={`/tags`}>
-            Tous les tags
-          </Link>
-        </div>
       </Layout>
     )
   }

@@ -23,7 +23,7 @@ const ArticlePreview = ({ posts }) => {
             <li key={post.slug}>
               <Link to={`/articles/${post.slug}`} className={styles.link}>
                 {post.heroImage && post.heroImage.filename !== 'white.png' && (
-                  <GatsbyImage alt="" image={post.heroImage} />
+                  <GatsbyImage alt="" image={post.heroImage.gatsbyImageData} />
                 )}
                 <h2 className={styles.title}>{post.title}</h2>
               </Link>

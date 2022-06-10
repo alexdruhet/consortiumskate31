@@ -29,7 +29,7 @@ const ArticlePreview = ({ posts }) => {
                 {post.extract.raw && renderRichText(post.extract)}
               </div>
               <div className={styles.meta}>
-                <time className="meta date" datetime={post.publishDate}>
+                <time className="meta date" dateTime={post.publishDate}>
                   {moment(post.publishDate).format('LL')}
                 </time>
                 <Tags tags={post.tags} />

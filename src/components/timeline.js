@@ -16,7 +16,7 @@ const Timeline = ({ milestones }) => {
         {milestones.map((milestone) => {
           return (
             <li key={milestone.id} className={styles.milestoneItem}>
-              <time className={styles.milestoneDate} datetime={milestone.date}>
+              <time className={styles.milestoneDate} dateTime={milestone.date}>
                 {moment(milestone.date).format('LL')}
               </time>
               <div className={styles.milestoneContent}>

@@ -35,7 +35,7 @@ export const pageQuery = graphql`
         id
         name
         logo {
-          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 424)
+          gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED, width: 424)
         }
         link
         description {

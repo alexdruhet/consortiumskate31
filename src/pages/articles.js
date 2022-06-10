@@ -34,11 +34,12 @@ export const pageQuery = graphql`
         tags
         heroImage {
           gatsbyImageData(
-            layout: FULL_WIDTH
+            layout: CONSTRAINED
             placeholder: BLURRED
             width: 424
-            height: 212
+            height: 262
           )
+          filename
         }
         extract {
           raw

@@ -3,7 +3,7 @@ import * as styles from './pdf-preview.module.css'
 import moment from 'moment'
 import 'moment/locale/fr'
 import { Link } from 'gatsby'
-import PdfViewer from './pdf'
+//import PdfViewer from './pdf'
 
 const PdfPreview = ({ pdfs }) => {
   if (!pdfs) return null
@@ -20,11 +20,11 @@ const PdfPreview = ({ pdfs }) => {
               <time className="meta date" dateTime={pdf.updatedAt}>
                 📆 Dernière mise à jour : {moment(pdf.updatedAt).format('LL')}
               </time>
-              <Link href={pdf.url}>💾 Télécharger le PDF</Link>
+              <Link href={pdf.url} className="button">💾 Télécharger le PDF</Link> 
             </div>
             <div className={styles.description}>{pdf.description}</div>
             <div className={styles.pdfWrapper}>
-              <PdfViewer url={pdf.url} />
+              {/*<PdfViewer url={pdf.url} />*/}
             </div>
           </li>
         )

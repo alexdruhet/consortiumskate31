@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Document, Outline, Page } from 'react-pdf/dist/esm/entry.webpack'
+//import { Document, Outline, Page } from 'react-pdf/dist/esm/entry.webpack'
 import * as styles from './pdf.module.css'
 
 export default function PdfViewer({ url }) {
@@ -29,7 +29,7 @@ export default function PdfViewer({ url }) {
 
   return (
     <>
-      <Document
+      {/*<Document
         className={styles.document}
         file={url}
         loading="PDF en cours de chargement&hellip;"
@@ -52,7 +52,7 @@ export default function PdfViewer({ url }) {
         >
           Suivant
         </button>
-      </div>
+      </div>*/}
     </>
   )
 }

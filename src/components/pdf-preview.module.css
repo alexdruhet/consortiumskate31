@@ -18,15 +18,7 @@
 }
 
 .meta {
-  font-size: .875rem;
-  color: var(--text-color-light);
-  filter: grayscale(100%);
   margin-bottom: .5rem;
-}
-
-.meta>* {
-  display: block;
-  margin-bottom: .25rem;
 }
 
 .description {

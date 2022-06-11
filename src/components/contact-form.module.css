@@ -1,38 +1,36 @@
-.form {
+.form-wrapper {
     margin: 0 auto;
     padding: 2rem;
-    max-width: 500px;
+    max-width: var(--size-max-width);
 }
 
-.form label {
-    display: block;
-    margin: 1rem auto;
+.form {
+    max-width: 45rem;
 }
 
-.field-name {
-    margin: 0
+
+.group {
+    margin: 0 0 .5rem;
 }
 
-.field-email {
-    margin: 0
+.group label {
+    display: inline-block;
+    width: 5rem;
 }
 
-.field-subject {
-    margin: 0
+.group label[required]::after {
+    content: ' *';
+    color: var(--secondary);
 }
 
-.field-message {
-    margin: 0
-}
-
-.buttons {
-    margin: 0
-}
-
-.button-submit {
-    margin: 0
-}
-
-.button-reset {
-    margin: 0
+.group input[type="email"],
+.group input[type="text"],
+.group textarea {
+	box-sizing: border-box;
+	border: 1px solid #c2c2c2;
+	box-shadow: 1px 1px 4px #ebebeb;
+	border-radius: var(--radius-md);
+	padding: 7px;
+    width: 100%;
+    max-width: 40rem;
 }

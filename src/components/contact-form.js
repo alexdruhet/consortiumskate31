@@ -26,17 +26,28 @@ const ContactForm = () => {
       data: new FormData(form),
     })
       .then((r) => {
-        handleServerResponse(true, 'Merci!', form)
+        handleServerResponse(true, 'Votre message a bien été envoyé, merci !', form)
       })
       .catch((r) => {
-        handleServerResponse(false, r.response.data.error, form)
+        console.log(r)
+        let msg = r.message
+        if (r.response.data && r.response.data.error) {
+          msg = r.response.data.error
+        }
+        msg = `Désolé votre message n'a pas pu être envoyé (${msg}).`;
+        handleServerResponse(false, msg, form)
       })
   }
   return (
-    <div className={styles.formWrapper}> 
+    <div className={styles.formWrapper}>
       <form onSubmit={handleOnSubmit} className={styles.form}>
+        {serverState.status && (
+          <p className={!serverState.status.ok ? 'error' : 'success'}>
+            {serverState.status.msg}
+          </p>
+        )}
         <div className={styles.group}>
-          <label for="email" required="required">
+          <label htmlFor="email" required="required">
             Email
           </label>
           <input
@@ -49,7 +60,9 @@ const ContactForm = () => {
           />
         </div>
         <div className={styles.group}>
-          <label for="name" required="required">Nom</label>
+          <label htmlFor="name" required="required">
+            Nom
+          </label>
           <input
             type="text"
             name="name"
@@ -59,7 +72,9 @@ const ContactForm = () => {
           />
         </div>
         <div className={styles.group}>
-          <label for="message" required="required">Message</label>
+          <label htmlFor="message" required="required">
+            Message
+          </label>
           <textarea
             rows="10"
             name="message"
@@ -73,13 +88,8 @@ const ContactForm = () => {
           className="button"
           disabled={serverState.submitting}
         >
-          Envoyer
+          {serverState.submitting ? 'En cours de traitement…' : 'Envoyer'}
         </button>
-        {serverState.status && (
-          <p className={!serverState.status.ok ? 'errorMsg' : ''}>
-            {serverState.status.msg}
-          </p>
-        )}
       </form>
     </div>
   )

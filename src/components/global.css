@@ -157,3 +157,13 @@ main {
   background-color: var(--primary);
   box-shadow: var(--primary-dark-faded) 0 0 0 1px inset, var(--primary-dark-faded) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, var(--primary-faded) 0 0 0 4px;
 }
+
+.button[disabled] {
+  pointer-events: none;
+  filter: grayscale(50%);
+  cursor: not-allowed;
+}
+
+.error {
+  color: var(--secondary);
+}

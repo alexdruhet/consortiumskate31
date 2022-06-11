@@ -1,98 +1,105 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React from 'react'
 import * as styles from './contact-form.module.css'
 
-const ContactForm = () => {
-  const [serverState, setServerState] = useState({
-    submitting: false,
-    status: null,
-  })
-  const handleServerResponse = (ok, msg, form) => {
-    setServerState({
+const functionURL = 'https://server.consortiumskate31.org'
+
+class ContactForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      buttonDisabled: true,
+      message: { fromEmail: '', subject: '', body: '' },
       submitting: false,
-      status: { ok, msg },
-    })
-    if (ok) {
-      form.reset()
+      error: null,
     }
   }
-  const handleOnSubmit = (e) => {
-    e.preventDefault()
-    const form = e.target
-    setServerState({ submitting: true })
-    axios({
+
+  onClick = async (event) => {
+    event.preventDefault()
+    this.setState({ submitting: true })
+    const { fromEmail, subject, body } = this.state.message
+
+    const response = await fetch(functionURL, {
       method: 'post',
-      url: 'https://server.consortiumskate31.org',
-      data: new FormData(form),
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+      },
+      body: new URLSearchParams({ fromEmail, subject, body }).toString(),
     })
-      .then((r) => {
-        handleServerResponse(true, 'Votre message a bien été envoyé, merci !', form)
+    if (response.status === 200) {
+      this.setState({
+        error: null,
+        submitting: false,
+        message: {
+          fromEmail: '',
+          subject: '',
+          body: '',
+        },
       })
-      .catch((r) => {
-        console.log(r)
-        let msg = r.message
-        if (r.response.data && r.response.data.error) {
-          msg = r.response.data.error
-        }
-        msg = `Désolé votre message n'a pas pu être envoyé (${msg}).`;
-        handleServerResponse(false, msg, form)
+    } else {
+      const json = await response.json()
+      this.setState({
+        error: json.error,
+        submitting: false,
       })
+    }
   }
-  return (
-    <div className={styles.formWrapper}>
-      <form onSubmit={handleOnSubmit} className={styles.form}>
-        {serverState.status && (
-          <p className={!serverState.status.ok ? 'error' : 'success'}>
-            {serverState.status.msg}
-          </p>
-        )}
-        <div className={styles.group}>
-          <label htmlFor="email" required="required">
-            Email
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            aria-describedby="emailHelp"
-            placeholder="Votre email"
-            required="required"
-          />
-        </div>
-        <div className={styles.group}>
-          <label htmlFor="name" required="required">
-            Nom
-          </label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Votre nom"
-            required="required"
-          />
-        </div>
-        <div className={styles.group}>
-          <label htmlFor="message" required="required">
-            Message
-          </label>
-          <textarea
-            rows="10"
-            name="message"
-            id="message"
-            placeholder="Votre message"
-            required="required"
-          />
-        </div>
-        <button
-          type="submit"
-          className="button"
-          disabled={serverState.submitting}
-        >
-          {serverState.submitting ? 'En cours de traitement…' : 'Envoyer'}
-        </button>
-      </form>
-    </div>
-  )
+
+  onChange = (event) => {
+    const name = event.target.getAttribute('name')
+    this.setState({
+      message: { ...this.state.message, [name]: event.target.value },
+    })
+  }
+  render() {
+    return (
+      <div className={styles.formWrapper}>
+        <div>{this.state.error}</div>
+        <form className={styles.form} method="post" action={functionURL}>
+          <div className={styles.group}>
+            <label htmlFor="fromEmail">Email</label>
+            <input
+              type="email"
+              name="fromEmail"
+              id="fromEmail"
+              value={this.state.message.fromEmail}
+              onChange={this.onChange}
+            />
+          </div>
+          <div className={styles.group}>
+            <label htmlFor="subject">Sujet</label>
+            <input
+              type="text"
+              name="subject"
+              id="subject"
+              value={this.state.message.subject}
+              onChange={this.onChange}
+            />
+          </div>
+          <div className={styles.group}>
+            <label htmlFor="body">Message</label>
+            <textarea
+              style={{
+                height: `125px`,
+              }}
+              name="body"
+              id="body"
+              value={this.state.message.body}
+              onChange={this.onChange}
+            />
+          </div>
+          <button
+            className="button"
+            type="submit"
+            disabled={this.state.submitting}
+            onClick={this.onClick}
+          >
+            Envoyer
+          </button>
+        </form>
+      </div>
+    )
+  }
 }
 
 export default ContactForm

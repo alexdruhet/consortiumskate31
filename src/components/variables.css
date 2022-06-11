@@ -1,21 +1,27 @@
 :root {
   /* primitives */
   /* font-family */
-  --font-sans: 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol';
-  --font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-    'Courier New', monospace;
-  --font-serif: 'Times New Roman', Times, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "avenir next", avenir, "segoe ui", "helvetica neue", helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+  --font-monospace: SFMono-Regular, Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace;
+  --font-serif: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
   /* palette */
   --white: #fff;
   --black: #000;
+  --grey: hsl(0, 0%, 50%);
   --black-fade-50: rgba(0, 0, 0, 0.5);
   --black-fade-5: rgba(0, 0, 0, 0.05);
+  --primary-light: hsl(283 42% 61%);
+  --primary: hsl(282 57% 33%);
+  --primary-faded: hsl(282 57% 33% / 0.05);
+  --primary-dark: hsl(282 51% 15%);
+  --primary-dark-faded: hsl(282 51% 15% / 0.03);
+  --secondary: hsl(355 80% 41%);
 
   /* radii */
-  --radius-sm: 4px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
 
   /* spacing */
   --space-sm: 4px;
@@ -32,6 +38,7 @@
   --loose: 1.75;
 
   /* font-weight */
+  --light: 300;
   --body: 400;
   --medium: 500;
   --semibold: 600;
@@ -40,12 +47,12 @@
   --heavy: 900;
 
   /* font-size */
-  --text-xs: 12px;
-  --text-sm: 14px;
-  --text-md: 16px;
-  --text-lg: 18px;
-  --text-xl: 20px;
-  --text-2xl: 24px;
+  --text-sm: .875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+
+
+  --text-2xl: 1.25rem;
   --text-3xl: 32px;
   --text-4xl: 48px;
   --text-5xl: 64px;
@@ -53,10 +60,6 @@
 
   /* tokens */
   /* colors */
-  --primary-off: hsl(283, 42%, 61%);
-  --primary: hsl(282, 57%, 33%);
-  --primary-light: hsla(282, 41%, 65%, 0.035);
-  --secondary: hsl(355, 80%, 41%);
   --background: var(--white);
   --border: var(--black-fade-5);
 
@@ -65,7 +68,7 @@
   --text-color: var(--black);
   --text-color-light: var(--black-fade-50);
   /* size */
-  --text-lead: var(--text-lg);
+  --text-lead: 1.125rem;
   --text-prose: var(--text-md);
   --text-title: var(--text-3xl);
   /* tracking */
@@ -74,7 +77,7 @@
   /* size */
   --size-gutter: var(--space-2xl);
   --size-logo: var(--space-2xl);
-  --size-max-width: 80rem;
+  --size-max-width: 90rem;
 }
 
 @media (min-width: 480px) {
@@ -83,55 +86,11 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 42rem) {
   :root {
     --text-lead: var(--text-2xl);
     --text-title: var(--text-4xl);
     --text-prose-tracking: -0.014em;
     --text-prose: var(--text-lg);
   }
-}
-
-.meta.date {
-  filter: grayscale(100%);
-  font-size: .875rem;
-  color: var(--text-color-light);
-}
-
-.button {
-  appearance: button;
-  backface-visibility: hidden;
-  background-color: var(--primary-off);
-  border-radius: 6px;
-  border-width: 0;
-  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .1) 0 2px 5px 0, rgba(0, 0, 0, .07) 0 1px 1px 0;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Ubuntu, sans-serif;
-  font-size: 100%;
-  height: 44px;
-  line-height: 44px;
-  margin: .5rem 0 0;
-  outline: none;
-  overflow: hidden;
-  padding: 0 2rem;
-  position: relative;
-  text-align: center;
-  text-transform: none;
-  transform: translateZ(0);
-  transition: all .2s, box-shadow .2s ease-in;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: 100%;
-}
-
-.button:hover,
-.button:active,
-.button:focus {
-  color: #fff;
-  background-color: var(--primary);
-  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
 }

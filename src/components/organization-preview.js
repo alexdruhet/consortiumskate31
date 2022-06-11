@@ -14,7 +14,7 @@ const OrganizationPreview = ({ organizations }) => {
       <ul className={styles.organizationList}>
         {organizations.map((organization) => {
           return (
-            <li key={organization.id}>
+            <li key={organization.id} className={styles.organizationItem}>
               <Link to={organization.link} className={styles.link}>
                 {organization.logo && (
                   <GatsbyImage
@@ -22,8 +22,8 @@ const OrganizationPreview = ({ organizations }) => {
                     image={organization.logo.gatsbyImageData}
                   />
                 )}
-                <h2 className={styles.name}>{organization.name}</h2>
-                <div>
+                <h2 className="item-title">{organization.name}</h2>
+                <div className="item-extract">
                   {organization.description?.raw &&
                     renderRichText(organization.description)}
                 </div>

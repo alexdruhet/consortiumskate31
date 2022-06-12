@@ -97,13 +97,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const tags = extractTagsFromPosts(posts)
     if (tags.length > 0) {
       tags.forEach((tag, index) => {
-        createPage({
-          path: `/tags/${tag}/`,
-          component: Tag,
-          context: {
-            tag: tag,
-          },
-        })
+        tag !== null &&
+          createPage({
+            path: `/tags/${tag}/`,
+            component: Tag,
+            context: {
+              tag: tag,
+            },
+          })
       })
     }
   }

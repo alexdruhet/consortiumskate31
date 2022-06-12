@@ -18,6 +18,7 @@ const Seo = ({ description = '', lang = 'en', meta = [], title, image }) => {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
+  const defaultImage = image || '/static/images/cs31-og.png'
 
   return (
     <Helmet

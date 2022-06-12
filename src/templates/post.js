@@ -55,7 +55,7 @@ class PostTemplate extends React.Component {
         <Seo
           title={post.title}
           description={plainTextExtract}
-          image={`http:${post.heroImage.resize.src}`}
+          image={post.heroImage.resize !== null && `http:${post.heroImage.resize.src}`}
         />
         <Hero
           image={heroImage?.gatsbyImageData}

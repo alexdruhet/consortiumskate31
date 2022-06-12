@@ -8,7 +8,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       fallback: {
         fs: false,
         path: require.resolve('path-browserify'),
-        stream: require.resolve("stream-browserify"),
+        stream: require.resolve('stream-browserify'),
         //http: require.resolve("stream-http"),
         //https: require.resolve("https-browserify"),
         //util: require.resolve("util/"),
@@ -67,14 +67,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const previousPostSlug =
         index === 0
           ? null
-          : posts[index + 1].tags && posts[index - 1].tags.includes('demo') &&
+          : posts[index + 1].tags &&
+            posts[index - 1].tags.includes('demo') &&
+            post.tags &&
             !post.tags.includes('demo')
           ? null
           : posts[index - 1].slug
       const nextPostSlug =
         index === posts.length - 1
           ? null
-          : posts[index + 1].tags && posts[index + 1].tags.includes('demo') &&
+          : posts[index + 1].tags &&
+            posts[index + 1].tags.includes('demo') &&
+            post.tags &&
             !post.tags.includes('demo')
           ? null
           : posts[index + 1].slug

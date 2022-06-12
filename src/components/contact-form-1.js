@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 import * as styles from './contact-form.module.css'
 
 const ContactForm1 = () => {
@@ -20,23 +19,21 @@ const ContactForm1 = () => {
     e.preventDefault()
     const form = e.target
     setServerState({ submitting: true })
-    axios({
+
+    const response = await fetch(functionURL, {
       method: 'post',
-      url: 'https://server.consortiumskate31.org',
-      data: new FormData(form),
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+      },
+      body: new FormData(form),
     })
-      .then((r) => {
-        handleServerResponse(true, 'Votre message a bien été envoyé, merci !', form)
-      })
-      .catch((r) => {
-        console.log(r)
-        let msg = r.message
-        if (r.response.data && r.response.data.error) {
-          msg = r.response.data.error
-        }
-        msg = `Désolé votre message n'a pas pu être envoyé (${msg}).`;
+    if (response.status === 200) {
+      handleServerResponse(true, 'Votre message a bien été envoyé, merci !', form)
+    } else {
+      const json = await response.json()
+      msg = `Désolé votre message n'a pas pu être envoyé (${json.error}).`;
         handleServerResponse(false, msg, form)
-      })
+    }
   }
   return (
     <div className={styles.formWrapper}>

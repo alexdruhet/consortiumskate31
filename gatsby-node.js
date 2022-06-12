@@ -67,7 +67,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const previousPostSlug =
         index === 0
           ? null
-          : posts[index + 1].tags !== null &&
+          : posts[index - 1].tags !== null &&
             posts[index - 1].tags.includes('demo') &&
             post.tags !== null &&
             !post.tags.includes('demo')

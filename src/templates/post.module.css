@@ -18,7 +18,9 @@
 
 .time-to-read {}
 
-.article {}
+.article {
+  padding: 0 2rem;
+}
 
 .body {}
 
@@ -42,6 +44,7 @@
 
   .meta {
     width: 16rem;
+    padding-right: 0;
   }
 
   .body {

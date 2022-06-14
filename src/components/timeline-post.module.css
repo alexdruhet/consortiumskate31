@@ -1,6 +1,6 @@
 .timeline-post-list {
   display: block;
-  list-style: square;
+  list-style-type: square;
   margin: 0 0 0 .25rem;
   padding-left: 2rem;
   padding-bottom: 1rem;

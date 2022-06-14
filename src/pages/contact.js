@@ -1,8 +1,8 @@
 import React from 'react'
-import ContactForm from '../components/contact-form'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import Hero from '../components/hero'
+import ContactForm1 from '../components/contact-form-1'
 
 class ContactPage extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class ContactPage extends React.Component {
       <Layout location={this.props.location}>
         <Seo title="Écrivez-nous" />
         <Hero title="Écrivez-nous" />
-        <ContactForm />
+        <ContactForm1 />
       </Layout>
     )
   }

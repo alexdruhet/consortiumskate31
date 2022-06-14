@@ -35,6 +35,8 @@ const options = {
   //  },
   //},
 }
+// @TODO: render references
+// @see https://www.contentful.com/developers/docs/tutorials/general/rich-text-and-gatsby/
 
 class PostTemplate extends React.Component {
   render() {

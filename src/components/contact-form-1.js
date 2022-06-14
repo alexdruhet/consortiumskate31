@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import * as styles from './contact-form.module.css'
 
 const ContactForm1 = () => {
+  
   const [serverState, setServerState] = useState({
     submitting: false,
     status: null,
   })
+
   const handleServerResponse = (ok, msg, form) => {
     setServerState({
       submitting: false,
@@ -15,42 +17,45 @@ const ContactForm1 = () => {
       form.reset()
     }
   }
-  const handleOnSubmit = (e) => {
+
+  const handleOnSubmit = async (e) => {
     e.preventDefault()
     const form = e.target
     setServerState({ submitting: true })
 
-    const response = await fetch(functionURL, {
+    //const response = await fetch('https://server.consortiumskate31.org/', {
+    const response = await fetch('http://localhost:8076', {
       method: 'post',
-      headers: {
-        'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-      },
+      mode: 'cors',
+      cache: "no-cache",
       body: new FormData(form),
     })
+
     if (response.status === 200) {
       handleServerResponse(true, 'Votre message a bien été envoyé, merci !', form)
     } else {
       const json = await response.json()
-      msg = `Désolé votre message n'a pas pu être envoyé (${json.error}).`;
+      const msg = `Désolé votre message n'a pas pu être envoyé (${json.message}).`;
         handleServerResponse(false, msg, form)
     }
   }
+
   return (
     <div className={styles.formWrapper}>
       <form onSubmit={handleOnSubmit} className={styles.form}>
         {serverState.status && (
-          <p className={!serverState.status.ok ? 'error' : 'success'}>
-            {serverState.status.msg}
+          <p className={!serverState.status?.ok ? 'error' : 'success'}>
+            {serverState.status?.msg}
           </p>
         )}
         <div className={styles.group}>
-          <label htmlFor="email" required="required">
+          <label htmlFor="email-from" required="required">
             Email
           </label>
           <input
             type="email"
-            name="email"
-            id="email"
+            name="email_from"
+            id="email-from"
             aria-describedby="emailHelp"
             placeholder="Votre email"
             required="required"

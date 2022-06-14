@@ -23,8 +23,8 @@ const ContactForm1 = () => {
     const form = e.target
     setServerState({ submitting: true })
 
-    //const response = await fetch('https://server.consortiumskate31.org/', {
-    const response = await fetch('http://localhost:8076', {
+    const response = await fetch('https://server.consortiumskate31.org/', {
+    //const response = await fetch('http://localhost:8076', {
       method: 'post',
       mode: 'cors',
       cache: "no-cache",

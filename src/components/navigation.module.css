@@ -1,0 +1,94 @@
+.container {
+  padding: var(--vspace) var(--hspace);
+  text-align: center;
+  font-size: var(--text-sm);
+}
+
+.logo-link {
+  font-weight: var(--body);
+}
+
+.logo-link span {
+  vertical-align: middle;
+  margin-right: var(--space-md);
+  display: inline-block;
+}
+
+.logo {
+  height: var(--size-logo);
+  width: calc(var(--size-logo) / 1.6);
+  display: inline-block;
+  background-image: url("../assets/images/logo-consortiumskate31.svg");
+  background-repeat: no-repeat;
+}
+
+.title {
+  font-weight: var(--medium);
+}
+
+.logo-link .description {
+  display: none;
+}
+
+.navigation {
+  margin: var(--vspace) 0 0;
+  padding: 0;
+  list-style: none;
+  position: sticky;
+}
+
+.navigation-item {
+  display: inline-block;
+  margin-inline: var(--space-sm);
+  vertical-align: middle;
+}
+
+.navigation-item::after {
+  content: "-";
+  padding-left: var(--space-md);
+}
+
+.navigation-item:last-child::after {
+  display: none;
+}
+
+.navigation-item a {
+  border-bottom: 1px dotted transparent;
+  transition: border-bottom-color 400ms ease-in-out;
+}
+
+.navigation-item a:hover,
+.navigation-item a:focus {
+  border-bottom-color: var(--primary-light);
+}
+
+@use postcss-custom-media;
+
+@media (min-width: 42rem) {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    max-width: var(--page-max-width);
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .navigation {
+    margin-top: 0;
+  }
+
+  .navigation-item::after {
+    padding-left: var(--space-md);
+  }
+}
+
+@media (min-width: 72rem) {
+  .logo-link .description {
+    display: inline-block;
+  }
+
+  .logo-link .description::before {
+    content: "-";
+    padding-right: var(--space-md);
+  }
+}

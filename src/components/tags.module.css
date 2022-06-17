@@ -1,0 +1,14 @@
+.tags {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: .5rem;
+}
+
+.tag {
+  display: inline-block;
+  white-space: nowrap;
+  background-color: var(--black-fade-5);
+  border-radius: var(--radius-sm);
+  line-height: var(--solid);
+  padding: var(--space-sm) var(--space-md);
+}

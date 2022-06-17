@@ -1,0 +1,59 @@
+.pdf-list {
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  margin: 0 auto 1.5rem;
+  padding: 0 2rem;
+  max-width: 45rem;
+}
+
+.title {
+  display: block;
+  font-size: var(--text-lg);
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.meta {
+  margin-bottom: .5rem;
+}
+
+.description {
+  margin-bottom: 1.5rem;
+}
+
+.pdf-wrapper {
+  width: 100%;
+  height: auto;
+  box-shadow: 0px 10px 41px -3px rgba(0, 0, 0, 0.1), 0px 10px 15px -19px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  position: relative;
+}
+
+.pdf {
+  width: 100%;
+  height: auto;
+}
+
+.pdf__pagination {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+@media (min-width: 42rem) {
+  .meta {
+    width: 16rem;
+    float: left;
+  }
+
+  .description {
+    max-width: 24rem;
+    margin-left: 17rem;
+  }
+}

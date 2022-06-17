@@ -1,0 +1,115 @@
+.timeline {
+  padding: 0 2rem 2rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 16px solid var(--secondary);
+  bottom: 1.5rem;
+  left: 2.02rem;
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  margin-bottom: 1em;
+  color: var(--text-color-light);
+  font-weight: normal;
+  font-variant: small-caps;
+}
+
+.milestone-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: block;
+}
+
+.milestone-item {
+  margin: 0 0 .5rem;
+  padding: 0;
+  display: block;
+}
+
+.milestone-title {
+  margin: 0 0 0 .25rem;
+  padding-top: .5rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  border-left: 3px solid var(--secondary);
+  font-size: 1.25rem;
+}
+
+.milestone-date {
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--secondary);
+}
+
+.milestone-date::after {
+  content: '';
+  position: absolute;
+  top: .65rem;
+  left: -.1rem;
+  background-color: var(--white);
+  border: 3px solid var(--secondary);
+  width: .5rem;
+  height: .5rem;
+  border-radius: 50%;
+}
+
+@media (min-width: 44rem) {
+  .timeline {
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0 2rem;
+  }
+
+  .timeline::after {
+    left: 13.02rem;
+  }
+
+  .milestone-item {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .milestone-date {
+    flex: 0 1 8rem;
+    align-self: auto;
+    text-align: right;
+    margin-top: .6rem;
+    margin-right: 1rem;
+    padding-left: 0;
+  }
+
+  .milestone-date::after {
+    top: 0.3rem;
+    left: auto;
+    right: -1.77rem;
+  }
+
+  .milestone-content {
+    flex: 0 1 23rem;
+    align-self: auto;
+  }
+
+  .title {
+    margin-left: 13.2rem;
+  }
+
+}

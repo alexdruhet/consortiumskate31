@@ -1,0 +1,28 @@
+.organization-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.organization-item {
+  margin: 0 auto var(--vspace);
+  width: 100%;
+}
+
+.link {
+}
+
+@media (min-width: 42rem) {
+  .organization-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    gap: calc(2 * var(--hspace));
+  }
+
+  .organization-item {
+    margin: 0;
+    width: 22.41%;
+  }
+}

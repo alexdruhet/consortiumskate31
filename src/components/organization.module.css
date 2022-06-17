@@ -1,0 +1,40 @@
+.organization {
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+.image {
+  max-width: 640px;
+}
+
+.details {
+  margin: 1.25rem auto 0;
+}
+
+.details p {
+  margin: 0;
+}
+
+.title {
+  visibility: hidden;
+  position: absolute;
+}
+
+.content {
+  font-size: var(--text-lead);
+  font-weight: var(--semibold);
+  margin: 0;
+}
+
+@media (min-width: 44rem) {
+  .organization {
+    padding: 4rem 0 3rem;
+  }
+
+  .image,
+  .details {
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

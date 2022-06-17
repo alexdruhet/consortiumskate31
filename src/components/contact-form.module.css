@@ -1,0 +1,31 @@
+.form {
+    max-width: 45rem;
+}
+
+
+.group {
+    margin: 0 0 .5rem;
+}
+
+.group label {
+    display: inline-block;
+    width: 5rem;
+}
+
+.group label[required]::after {
+    content: ' *';
+    color: var(--secondary);
+}
+
+.group input[type="email"],
+.group input[type="text"],
+.group textarea {
+    font-family: var(--font-sans);
+	box-sizing: border-box;
+	border: 1px solid #c2c2c2;
+	box-shadow: 1px 1px 4px #ebebeb;
+	border-radius: var(--radius-md);
+	padding: 7px;
+    width: 100%;
+    max-width: 40rem;
+}

@@ -99,7 +99,8 @@ a.active {
   margin: 0 0 1rem;
   padding: 0;
   list-style: none;
-  display: block;
+  display: flex;
+  justify-content: center
 }
 
 .social li {

@@ -9,6 +9,7 @@
   padding: var(--vspace) var(--hspace);
 }
 
+.right,
 .copyright {
   text-align: center;
 }

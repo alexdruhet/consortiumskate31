@@ -1,60 +1,18 @@
 import type { GatsbyNode } from "gatsby"
 import * as path from "path"
-const { extractTagsFromPosts } = require('./src/components/helpers')
-
-type TypePost = {
-  id: string
-  title: string
-  slug: string
-  tag?: Array<string>
-}
+import { extractTagsFromPosts } from './src/components/helpers'
 
 type TypeData = {
-  allPost: {
-    nodes: TypePost[]
+  allContentfulPost: {
+    nodes: Queries.ContentfulPost[]
   }
 }
-
-//type Person = {
-//  id: number
-//  name: string
-//  age: number
-//}
-
-//export const sourceNodes: GatsbyNode["sourceNodes"] = async ({
-//  actions,
-//  createNodeId,
-//  createContentDigest,
-//}) => {
-//  const { createNode } = actions
-//
-//  //const data = await getSomeData()
-////
-//  //data.forEach((person: Person) => {
-//  //  const node = {
-//  //    ...person,
-//  //    parent: null,
-//  //    children: [],
-//  //    id: createNodeId(`person__${person.id}`),
-//  //    internal: {
-//  //      type: "Person",
-//  //      content: JSON.stringify(person),
-//  //      contentDigest: createContentDigest(person),
-//  //    },
-//  //  }
-////
-//  //  createNode(node)
-//  //})
-//}
 
 export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions, reporter }) => {
 
   const { createPage } = actions
-
-
   const Post = path.resolve('./src/templates/post.tsx')
   const Tag = path.resolve('./src/templates/tag.tsx')
-
   const result = await graphql<TypeData>(
     `
       {
@@ -78,31 +36,13 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
   }
 
   const posts = result.data?.allContentfulPost.nodes
+  if (posts && posts.length > 0) {
 
-  // Create blog posts pages
-  // But only if there's at least one blog post found in Contentful
-  // `context` is available in the template as a prop and as a variable in GraphQL
-
-  if (posts.length > 0) {
     posts.forEach((post, index) => {
-      const previousPostSlug =
-        index === 0
-          ? null
-          : posts[index - 1].tags !== null &&
-            posts[index - 1].tags.includes('demo') &&
-            post.tags !== null &&
-            !post.tags.includes('demo')
-            ? null
-            : posts[index - 1].slug
-      const nextPostSlug =
-        index === posts.length - 1
-          ? null
-          : posts[index + 1].tags !== null &&
-            posts[index + 1].tags.includes('demo') &&
-            post.tags !== null &&
-            !post.tags.includes('demo')
-            ? null
-            : posts[index + 1].slug
+      const previousPostHasDemoTag: boolean | null | undefined = index > 0 && posts[index - 1] && posts[index - 1].tags && Array.isArray(posts[index - 1].tags) && posts[index - 1].tags?.includes('demo')
+      const nextPostHasDemoTag: boolean | null | undefined = index < posts.length - 1 && posts[index + 1] && posts[index + 1].tags && Array.isArray(posts[index + 1].tags) && posts[index + 1].tags?.includes('demo')
+      const previousPostSlug = previousPostHasDemoTag ? null : posts[index - 1] ? posts[index - 1].slug : null
+      const nextPostSlug = nextPostHasDemoTag ? null : posts[index + 1] ? posts[index + 1].slug : null
 
       createPage({
         path: `/articles/${post.slug}/`,
@@ -117,15 +57,14 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions,
 
     const tags = extractTagsFromPosts(posts)
     if (tags.length > 0) {
-      tags.forEach((tag, index) => {
-        tag !== null &&
-          createPage({
-            path: `/tags/${tag}/`,
-            component: Tag,
-            context: {
-              tag: tag,
-            },
-          })
+      tags.forEach((tag: string) => {
+        createPage({
+          path: `/tags/${tag}/`,
+          component: Tag,
+          context: {
+            tag: tag,
+          },
+        })
       })
     }
   }

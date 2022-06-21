@@ -1,14 +1,16 @@
-declare module '*.css' {
-    const content: { [className: string]: string };
-    export default content;
-}
+//declare module '*.css' {
+//    const content: { [className: string]: string };
+//    export default content;
+//}
 
 declare module "*.png" {
     const value: any;
     export = value;
- }
+}
 
- declare module "*.svg" {
+declare module "*.svg" {
     const value: any;
     export = value;
- }
+}
+
+declare namespace App { }

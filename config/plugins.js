@@ -6,6 +6,7 @@ module.exports = [
       spaceId: process.env.CONTENTFUL_SPACE_ID,
     },
   },
+  "gatsby-transformer-typescript-css-modules",
   "gatsby-plugin-postcss",
   {
     resolve: `gatsby-plugin-google-gtag`,

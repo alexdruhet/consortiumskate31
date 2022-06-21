@@ -4,7 +4,7 @@ import Social from './social';
 
 const siteMetadata = require('../../config/site-metadata');
 
-const Footer = ({ lang = 'en' }) => (
+const Footer = () => (
   <footer className={styles.footer}>
     <div className={styles.inner}>
       <div className={styles.licence}>
@@ -20,7 +20,7 @@ const Footer = ({ lang = 'en' }) => (
           <img
             style={{ width: '88px', height: '31px' }}
             alt="Licence Creative Commons"
-            src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"
+            src="https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png"
           />
           <ul>
             <li>copie, distribution et communication autorisées ;</li>

@@ -2,14 +2,24 @@ import React, { useState } from 'react'
 import * as styles from './contact-form.module.css'
 const siteMetadata = require('../../config/site-metadata');
 
+type TypeServerStateStatus = {
+  ok: boolean;
+  msg: string;
+}
+
+interface IServerState {
+  submitting: boolean;
+  status?: null | TypeServerStateStatus;
+}
+
 const ContactForm = () => {
 
-  const [serverState, setServerState] = useState({
+  const [serverState, setServerState] = useState<IServerState>({
     submitting: false,
     status: null,
   })
 
-  const handleServerResponse = (ok, msg, form) => {
+  const handleServerResponse = (ok: boolean, msg: string, form: HTMLFormElement) => {
     setServerState({
       submitting: false,
       status: { ok, msg },

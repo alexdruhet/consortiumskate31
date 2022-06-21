@@ -1,9 +1,9 @@
-const extractTagsFromPosts = (posts: Array<{}>) => {
-  let tags = []
+export const extractTagsFromPosts = (posts: Queries.ContentfulPost[]): string[] => {
+  let tags: string[] = []
   posts.forEach((post) => {
-    tags = tags.concat(post.tags)
+    if (Array.isArray(post.tags)) {
+      tags = tags.concat(post.tags)
+    }
   })
   return tags
 }
-
-module.exports.extractTagsFromPosts = extractTagsFromPosts

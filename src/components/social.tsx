@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import { useStaticQuery, graphql } from 'gatsby'
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 
 interface SiteMetadata {
     site: {
@@ -40,9 +40,9 @@ const Social = () => {
             {
                 Object.entries(site.siteMetadata.social).map(([name, profile]) => (
                     <li key={name}>
-                        <Link to={`https://www.${name}.com/${profile.substring(1)}`}>
+                        <OutboundLink href={`https://www.${name}.com/${profile.substring(1)}`}>
                             <span className="sr-only">{name}</span>
-                        </Link>
+                        </OutboundLink>
                     </li>
                 ))
             }

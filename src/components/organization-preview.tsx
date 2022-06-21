@@ -1,8 +1,8 @@
 import React from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { Link } from 'gatsby'
 import * as styles from './organization-preview.module.css'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 const OrganizationPreview = ({ organizations }: any) => {
   if (!organizations || !Array.isArray(organizations)) return null
@@ -12,7 +12,7 @@ const OrganizationPreview = ({ organizations }: any) => {
       {organizations.map((organization) => {
         return (
           <li key={organization.id} className={styles.organizationItem}>
-            <Link to={organization.link} className={styles.link}>
+            <OutboundLink href={organization.link} className={styles.link}>
               {organization.logo && (
                 <GatsbyImage
                   alt=""
@@ -24,7 +24,7 @@ const OrganizationPreview = ({ organizations }: any) => {
                 {organization.description?.raw &&
                   renderRichText(organization.description)}
               </div>
-            </Link>
+            </OutboundLink>
           </li>
         )
       })}

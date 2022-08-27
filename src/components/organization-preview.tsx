@@ -3,6 +3,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import * as styles from './organization-preview.module.css'
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
+import OrganizationPreviewItem from './organization-preview-item'
 
 const OrganizationPreview = ({ organizations }: any) => {
   if (!organizations || !Array.isArray(organizations)) return null
@@ -13,17 +14,11 @@ const OrganizationPreview = ({ organizations }: any) => {
         return (
           <li key={organization.id} className={styles.organizationItem}>
             <OutboundLink href={organization.link} className={styles.link}>
-              {organization.logo && (
-                <GatsbyImage
-                  alt=""
-                  image={organization.logo.gatsbyImageData}
-                />
-              )}
-              <h2 className="item-title">{organization.name}</h2>
-              <div className="item-description">
-                {organization.description?.raw &&
-                  renderRichText(organization.description)}
-              </div>
+              <OrganizationPreviewItem
+              logo={organization.logo}
+              name={organization.name}
+              description={organization.description}
+              />
             </OutboundLink>
           </li>
         )

@@ -24,7 +24,7 @@ export const query = graphql`
   query IndexPage {
     allContentfulJalon(
       filter: { node_locale: { eq: "fr" } }
-      sort: { fields: [date], order: ASC }
+      sort: { fields: [date], order: DESC }
     ) {
       nodes {
         id

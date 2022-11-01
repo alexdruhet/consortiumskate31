@@ -4,6 +4,6 @@ module.exports = {
   siteUrl: `https://consortiumskate31.org`,
   backendUrl: `https://server.consortiumskate31.org`,
   social: {
-    instagram: `@consortium_skate31`,
+    instagram: `@consortiumskate31`,
   },
 };

@@ -36,9 +36,6 @@ const SEO = ({ description, lang, meta, title, image }: SEOTypes): JSX.Element =
           siteMetadata {
             title
             description
-            social {
-                twitter
-            }
           }
         }
       }

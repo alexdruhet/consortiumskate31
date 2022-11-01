@@ -163,14 +163,14 @@ const PostTemplate = ({ location, pageContext, data }: PageProps<Queries.PostTem
                   {previous && (
                     <li>
                       <Link to={`/articles/${previous.slug}`} rel="prev" className="button">
-                        ◀︎ <span className="visually-hidden">{previous.title}</span>
+                        ◀︎ <span className="sr-only">{previous.title}</span>
                       </Link>
                     </li>
                   )}
                   {next && (
                     <li>
                       <Link to={`/articles/${next.slug}`} rel="next" className="button">
-                        <span className="visually-hidden">{next.title}</span> ►
+                        <span className="sr-only">{next.title}</span> ►
                       </Link>
                     </li>
                   )}

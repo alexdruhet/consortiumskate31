@@ -5,6 +5,5 @@ module.exports = {
   backendUrl: `https://server.consortiumskate31.org`,
   social: {
     instagram: `@consortium_skate31`,
-    twitter: `@consortiumskate`,
   },
 };

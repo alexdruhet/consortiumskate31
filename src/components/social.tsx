@@ -24,7 +24,6 @@ const Social = () => {
             title
             description
             social {
-                twitter
                 instagram
             }
           }
@@ -41,7 +40,7 @@ const Social = () => {
                 Object.entries(site.siteMetadata.social).map(([name, profile]) => (
                     <li key={name}>
                         <OutboundLink href={`https://www.${name}.com/${profile.substring(1)}`}>
-                            <span className="sr-only">{name}</span>
+                        ► Suivez nous sur {name}
                         </OutboundLink>
                     </li>
                 ))

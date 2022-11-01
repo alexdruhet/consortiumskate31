@@ -26,6 +26,7 @@ export const query = graphql`
   query ArticlesPage {
     allContentfulPost(
       filter: { node_locale: { eq: "fr" }, tags: { nin: "demo" } }
+      sort: { fields: [publishDate], order: DESC }
     ) {
       nodes {
         title

@@ -145,9 +145,9 @@ const PostTemplate = ({ location, pageContext, data }: PageProps<Queries.PostTem
           content={post.extract}
         />
         <div className={styles.container}>
-          <div className={styles.meta}>
-            <div className={styles.author}>✍️ {post.author?.name}</div>{' '}
-            <time dateTime={post.rawDate}>
+          <div className={"meta", styles.meta}>
+            <div className={"author"}>✍️ {post.author?.name}</div>{' '}
+            <time dateTime={post.rawDate} className={"date"}>
               📆 {moment(post.publishDate).format('LL')}
             </time>{' '}
             <Tags tags={post.tags} />
@@ -162,15 +162,15 @@ const PostTemplate = ({ location, pageContext, data }: PageProps<Queries.PostTem
                 <ul className={styles.articleNavigation}>
                   {previous && (
                     <li>
-                      <Link to={`/articles/${previous.slug}`} rel="prev">
-                        ← {previous.title}
+                      <Link to={`/articles/${previous.slug}`} rel="prev" className="button">
+                        ◀︎ <span className="visually-hidden">{previous.title}</span>
                       </Link>
                     </li>
                   )}
                   {next && (
                     <li>
-                      <Link to={`/articles/${next.slug}`} rel="next">
-                        {next.title} →
+                      <Link to={`/articles/${next.slug}`} rel="next" className="button">
+                        <span className="visually-hidden">{next.title}</span> ►
                       </Link>
                     </li>
                   )}

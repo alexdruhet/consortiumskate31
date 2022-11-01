@@ -8,6 +8,15 @@
   grid-template-rows: auto 1fr auto;
 }
 
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px,1px,1px,1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
+}
+
 a.active {
   font-weight: var(--bold);
 }
@@ -39,8 +48,12 @@ a.active {
   min-height: 8rem;
 }
 
-.meta.date {
-  filter: grayscale(100%);
+.meta {
+  display: block;
+}
+
+.date,
+.author {
   font-size: var(--text-sm);
   color: var(--text-color-light);
 }

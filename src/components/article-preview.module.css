@@ -20,10 +20,9 @@
 }
 
 .link:hover .title {
-  border-bottom-color: var(--primary);
+  color: var(--primary);
 }
 
 .meta {
-  display: flex;
-  justify-content: space-between;
+  display: block;
 }

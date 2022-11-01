@@ -2,20 +2,6 @@
   margin-bottom: 2rem;
 }
 
-.meta {
-  font-size: .875rem;
-  color: var(--text-color-light);
-  filter: grayscale(100%);
-  padding: 0 2rem;
-}
-
-.meta>* {
-  display: block;
-  margin-bottom: .25rem;
-}
-
-.author {}
-
 .time-to-read {}
 
 .article {
@@ -33,7 +19,14 @@
   list-style: circle;
 }
 
-.article-navigation {}
+.article-navigation {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-sm);
+  margin: var(--space-3xl) 0 0;
+  padding: 0;
+}
 
 @media (min-width: 42rem) {
   .container {

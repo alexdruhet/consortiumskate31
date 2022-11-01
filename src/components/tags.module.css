@@ -1,14 +1,22 @@
 .tags {
   display: flex;
-  gap: var(--space-md);
+  gap: var(--space-sm);
   margin-top: .5rem;
+  flex-wrap: wrap;
 }
 
 .tag {
   display: inline-block;
   white-space: nowrap;
-  background-color: var(--black-fade-5);
+  background-color: var(--grey-5);
   border-radius: var(--radius-sm);
   line-height: var(--solid);
   padding: var(--space-sm) var(--space-md);
+  font-size: .725rem;
+  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+}
+
+.tag:hover {
+  background-color: var(--primary-light);
+  color: var(--white);
 }

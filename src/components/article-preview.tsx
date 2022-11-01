@@ -22,6 +22,12 @@ const ArticlePreview = ({ posts }: Props) => {
       {posts.map((post) => {
         return (
           <li key={post.slug}>
+            <div className={styles.meta}>
+              <time className="meta date" dateTime={post.publishDate}>
+              📆 {moment(post.publishDate).format('LL')}
+              </time>
+              <Tags tags={post.tags} />
+            </div>
             <Link to={`/articles/${post.slug}`} className={styles.link}>
               {post.heroImage && post.heroImage.filename !== 'white.png' && (
                 <GatsbyImage alt="" image={post.heroImage.gatsbyImageData} />
@@ -29,12 +35,6 @@ const ArticlePreview = ({ posts }: Props) => {
               <h2 className={styles.title}>{post.title}</h2>
             </Link>
             <div>{post.extract.raw && renderRichText(post.extract)}</div>
-            <div className={styles.meta}>
-              <time className="meta date" dateTime={post.publishDate}>
-                {moment(post.publishDate).format('LL')}
-              </time>
-              <Tags tags={post.tags} />
-            </div>
           </li>
         )
       })}

@@ -1,54 +1,59 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal TypeScript starter
-</h1>
+# Consortium Skate 31 Website
 
-## 🚀 Quick start
+This repository contains code for the Consortium Skate 31 website built with Gatsby and Typescript, hosted on Netlify.
 
-1.  **Create a Gatsby site.**
+[![Netlify Status](https://api.netlify.com/api/v1/badges/51489c7d-1a2e-47b6-97b1-9bee167ce519/deploy-status)](https://app.netlify.com/sites/consortiumskate31/deploys)
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+## About The Project
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby
-    ```
+The project uses Gatsby, a powerful static site generator for React, and Typescript, a typed superset of JavaScript. The website is hosted for free on Netlify, a great platform that seamlessly integrates with Git.
 
-2.  **Start developing.**
+## Getting Started
 
-    Navigate into your new site’s directory and start it up.
+To get a local copy up and running, follow these simple steps.
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+### Prerequisites
 
-3.  **Open the code and start customizing!**
+This project requires Node.js (which comes with npm) installed on your computer. To install them, visit [Node.js download](https://nodejs.org/en/download/)
 
-    Your site is now running at http://localhost:8000!
+### Installation
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+1. Clone the repo
 
-4.  **Learn more**
+```sh
+git clone https://github.com/alexdruhet/consortiumskate31.git
+```
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+2. Install NPM packages
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+```sh
+npm install
+```
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+3. Start the local development server
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+```sh
+npm start
+```
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+## Deployment
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+The project is hosted on Netlify. The repository is connected with Netlify and it will automatically build and deploy when you push to your repository.
 
-## 🚀 Quick start (Gatsby Cloud)
+## Contributing
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
+
+## Contact
+
+Alex Druhet - [Listo Studio](https://listo.studio) - maintainer@consortiumskate31.org

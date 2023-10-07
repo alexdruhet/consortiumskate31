@@ -155,7 +155,7 @@ const PostTemplate = ({ location, pageContext, data }: PageProps<Queries.PostTem
           <div className={styles.article}>
             <div className={styles.body}>
             {/* <ContentfulRichText richText={post.body} /> */}
-              {renderRichText(post.body, renderOptions)}
+              {post.body && renderRichText(post.body, renderOptions)}
             </div>
             {(previous || next) && (
               <nav>
